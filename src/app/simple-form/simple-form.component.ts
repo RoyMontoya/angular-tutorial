@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-simple-form',
@@ -12,7 +12,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   (mouseup)="isMouseDown = false"
   (mouseleave)="isMouseDown = false"
   >
-  <button (click)="update.emit({text:message})">Click me!</button>
+  <button
+  class="white bg-black code"
+  (click)="update.emit({text:message})">Click me!</button>
   `,
   styles: [':host{display: flex; flex-direction: column;} input: focus{font-weight: bold; outline: none;} .mousedown{border: 2px solid green} button{border: none;}']
 })
