@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-simple-form',
-  template: `
-    <input #myInput type="text">
-    <button (click)="onClick(myInput.value)">Click me!</button>
-  `,
+  template: `<div>
+    <input #myInput type="text" [(ngModel)]="message">
+    <button (click)="update.emit({text:message})">Click me!</button>
+  </div>`,
   styles: []
 })
 export class SimpleFormComponent implements OnInit {
 
-  onClick(value){
-    console.log(value);
-  }
+@Input() message;
 
-  constructor() { }
+@Output() update = new EventEmitter();
+
+  constructor() {
+
+  }
 
   ngOnInit() {
   }
